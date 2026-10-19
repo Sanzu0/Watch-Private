@@ -3,97 +3,283 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exclusive Private Video Stream & Gallery (18+)</title>
-    <!-- Social Media Safe Preview Tags -->
-    <meta property="og:title" content="Private Video Portal - 18+ Only">
-    <meta property="og:description" content="Verify your age to view exclusive private streams and media gallery.">
+    <title>Hot Collection - Premium Videos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;600;700&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
     <style>
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
         }
         body {
-            background-color: #0b0c10;
+            font-family: 'Hind Siliguri', 'Poppins', sans-serif;
+            background: radial-gradient(circle at top, #1e112a, #0b0712, #000000);
             color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             padding: 15px;
+            overflow-x: hidden;
         }
-        .box {
-            background-color: #1f2833;
-            border: 2px solid #e50914;
-            padding: 30px 20px;
-            border-radius: 12px;
-            text-align: center;
+        .card {
+            background: rgba(22, 16, 34, 0.75);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 70, 85, 0.25);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9), 0 0 20px rgba(255, 50, 100, 0.15);
             max-width: 420px;
             width: 100%;
-            box-shadow: 0 0 20px rgba(229, 9, 20, 0.4);
+            padding: 22px 18px;
+            text-align: center;
+            position: relative;
         }
-        .badge {
-            background-color: #e50914;
-            color: #fff;
-            padding: 5px 12px;
-            font-weight: bold;
-            border-radius: 20px;
-            font-size: 14px;
-            display: inline-block;
-            margin-bottom: 15px;
-        }
-        h2 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #fff;
-        }
-        p {
-            font-size: 14px;
-            color: #c5c6c7;
-            margin-bottom: 25px;
-            line-height: 1.4;
-        }
-        .btn-access {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(45deg, #e50914, #ff416c);
-            color: #ffffff;
-            font-size: 18px;
-            font-weight: bold;
+
+        /* লোগো সেকশন */
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 12px;
             text-decoration: none;
-            border-radius: 6px;
+        }
+        .logo-icon {
+            font-size: 26px;
+            filter: drop-shadow(0 0 8px #ff3b30);
+            animation: flame-pulse 1.5s infinite alternate;
+        }
+        .brand-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             text-transform: uppercase;
-            box-shadow: 0 4px 15px rgba(229, 9, 20, 0.5);
-            transition: transform 0.2s, background 0.3s;
+            letter-spacing: 1px;
+            text-shadow: 0 0 15px rgba(255, 65, 108, 0.3);
         }
-        .btn-access:hover {
-            transform: scale(1.02);
-            background: linear-gradient(45deg, #ff416c, #e50914);
+
+        @keyframes flame-pulse {
+            0% { transform: scale(1); filter: drop-shadow(0 0 5px #ff3b30); }
+            100% { transform: scale(1.15); filter: drop-shadow(0 0 14px #ff7300); }
         }
-        .footer-note {
-            margin-top: 15px;
+
+        /* লাইভ স্ট্যাটাস ট্যাগে অ্যানিমেশন */
+        .live-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.35);
+            color: #f87171;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .dot {
+            width: 7px;
+            height: 7px;
+            background-color: #ef4444;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #ef4444;
+            animation: blink 1.2s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .header-title {
+            font-size: 23px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        /* ভিডিও প্রিভিউ বক্স */
+        .image-container {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+        }
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .image-container:hover img {
+            transform: scale(1.05);
+        }
+        .overlay-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(4px);
+            color: #ff4b2b;
             font-size: 11px;
-            color: #66fcf1;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 75, 43, 0.4);
+        }
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 25px rgba(255, 65, 108, 0.8);
+            animation: pulse-ring 1.8s infinite;
+        }
+        .play-btn::after {
+            content: '';
+            border-style: solid;
+            border-width: 9px 0 9px 17px;
+            border-color: transparent transparent transparent #ffffff;
+            margin-left: 3px;
+        }
+        @keyframes pulse-ring {
+            0% { box-shadow: 0 0 0 0 rgba(255, 65, 108, 0.7); }
+            70% { box-shadow: 0 0 0 16px rgba(255, 65, 108, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 65, 108, 0); }
+        }
+
+        .meta-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #a7a1b8;
+            margin-bottom: 18px;
+            padding: 0 4px;
+        }
+
+        /* বাটন সেকশন */
+        .btn-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            color: #ffffff;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-watch {
+            background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+            box-shadow: 0 4px 20px rgba(255, 65, 108, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .btn-download {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            box-shadow: 0 4px 20px rgba(5, 150, 105, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.15);
+        }
+
+        /* ফুটার */
+        .footer-box {
+            background: rgba(10, 6, 18, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 17px;
+            font-weight: 600;
+        }
+        .footer-box a {
+            color: #ff4b2b;
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.2s;
+        }
+        .footer-box a:hover {
+            color: #ff7300;
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
 
-    <div class="box">
-        <span class="badge">RESTRICTED 18+ ONLY</span>
-        <h2>Private Video Stream & Gallery</h2>
-        <p>Warning: This page contains adult content intended for mature audiences. Click below to confirm your age and start watching.</p>
-        
-        <!-- আপনার Adsterra Smart Link সহ বাটন -->
-        <a href="https://bigotcomet.com/qkjy1gpi?key=791d4298c5082a8cee4f8e8846036f8a" class="btn-access" target="_blank" rel="noopener noreferrer">
-            I AM 18+ / WATCH NOW &rarr;
+    <div class="card">
+
+        <!-- লোগো সেকশন (HOT COLLECTION) -->
+        <a href="https://auctionr.org/4/791d4298c5082a8cee4f8e8846036f8a" rel="nofollow" target="_blank" class="brand-logo">
+            <span class="logo-icon">🔥</span>
+            <span class="brand-name">Hot Collection</span>
         </a>
 
-        <div class="footer-note">
-            Fast Streaming • No Registration Required
+        <!-- লাইভ স্ট্যাটাস -->
+        <div class="live-tag">
+            <span class="dot"></span> Server Online • Ultra HD
         </div>
+
+        <!-- হেডলাইন -->
+        <div class="header-title">🔥 18+ ভিডিও নিচে দেখ 👇</div>
+
+        <!-- ছবি/প্রিভিউ সেকশন -->
+        <a href="https://auctionr.org/4/791d4298c5082a8cee4f8e8846036f8a" rel="nofollow" target="_blank">
+            <div class="image-container">
+                <span class="overlay-badge">4K Ultra HD</span>
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmzcv7wHIQnav2GIHQScPzk0p3N4N_5MsRr7MMNKpuLhPwZEoWy4lkL7edhuyDKpFQm6nvMy_Yk88pd5puSNfQ2O3BHoIM8pgGIWO5ixupyvSmFco12bkxn2eEPySrrZwiHJgAHX3TyOZqRGYvIGxCU8knmlx_xYQgGsf-KwAIqJq6ajkIlrKTmYCCW98q/s320/Untitled%20Design.png" alt="Video Preview">
+                <div class="play-btn"></div>
+            </div>
+        </a>
+
+        <!-- মেটা ইনফরমেশন -->
+        <div class="meta-info">
+            <span>👁 1.8M Views</span>
+            <span>📂 485 MB</span>
+            <span>⏱ 24:15 Min</span>
+        </div>
+
+        <!-- বাটন সেকশন -->
+        <div class="btn-stack">
+            <!-- ওয়াচ নাও বাটন -->
+            <a href="https://auctionr.org/4/791d4298c5082a8cee4f8e8846036f8a" rel="nofollow" target="_blank" class="btn btn-watch">
+                ▶ Watch Now (Online Stream)
+            </a>
+
+            <!-- ডাউনলোড বাটন -->
+            <a href="https://auctionr.org/4/791d4298c5082a8cee4f8e8846036f8a" rel="nofollow" target="_blank" class="btn btn-download">
+                📥 Download Full Video
+            </a>
+        </div>
+
+        <!-- ফুটার সেকশন -->
+        <div class="footer-box">
+            🔥 আরো 18+ ভিডিও দেখতে - <a href="https://auctionr.org/4/791d4298c5082a8cee4f8e8846036f8a" rel="nofollow" target="_blank">CLICK HERE</a>
+        </div>
+
     </div>
 
 </body>
